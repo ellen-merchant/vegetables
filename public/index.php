@@ -16,10 +16,17 @@ $container->addServiceProvider(Ellllllen\Providers\LeagueContainerServiceProvide
  */
 if (isset($argv)) {
     if (!isset($argv[1])) {
-        throw new \Exception("Please add an argument on the end of your script, e.g. php index.php --list-veg");
+        throw new \Exception("Please add an argument on the end of your script, e.g. php ./public/index.php --list-veg");
     }
 
-    $argument = $argv[1];
+    switch ($argv[1]) {
+        case "--list-veg":
+            $controller = $container->get(\Ellllllen\Controllers\VegetableController::class);
+            echo $controller->renderCliOutput();
+            break;
+        default:
+            echo "No argument defined for {$argv[1]}";
+    }
 
 } else {
     /**

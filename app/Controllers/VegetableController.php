@@ -27,7 +27,10 @@ class VegetableController
         $this->vegetables = $vegetables;
     }
 
-    public function anyIndex()
+    /**
+     * @return Response
+     */
+    public function get()
     {
         $vegetables = $this->vegetables->get();
 
@@ -36,5 +39,27 @@ class VegetableController
         );
 
         return $this->response;
+    }
+
+    /**
+     * Render CLI output.
+     *
+     * @return string
+     */
+    public function renderCliOutput()
+    {
+        $vegetables = $this->vegetables->get();
+
+        if ($vegetables) {
+            $response = "| id | name | classification | description | edible |\n";
+            $response .= "|----|------|----------------|-------------|--------|\n";
+            foreach ($vegetables as $vegetable) {
+                $response .= "| {$vegetable['id']} | {$vegetable['name']} | {$vegetable['classification']} | {$vegetable['description']} | {$vegetable['edible']} | \n";
+            }
+        } else {
+            $response = "No vegetables found.";
+        }
+
+        return $response;
     }
 }
