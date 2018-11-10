@@ -3,8 +3,13 @@
   "description": "Vegetables PHP coding test",
   "require": {
     "php": "^7.0",
+    "ext-json": "*",
+    "ext-pgsql": "*",
     "league/container": "^3.0",
-    "phroute/phroute": "^2.1"
+    "phroute/phroute": "^2.1",
+    "guzzlehttp/guzzle": "^6.3",
+    "sabre/http": "~4.2",
+    "vlucas/phpdotenv": "^2.5"
   },
   "autoload": {
     "psr-4": {

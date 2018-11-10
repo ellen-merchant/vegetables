@@ -2,4 +2,4 @@
 
 $namespace = 'Ellllllen';
 
-$router->controller('/vegetables', "$namespace\\VegetableController");
+$router->controller('/', "$namespace\\Controllers\\VegetableController");
