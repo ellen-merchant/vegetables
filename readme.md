@@ -1,4 +1,6 @@
 # Vegetables PHP coding test
+[![Build Status](https://travis-ci.com/ellllllen/vegetables.svg?branch=master)](https://travis-ci.org/ellllllen/vegetables)
+
 ## Abstract
 Create a micro-service in PHP without using a predefined framework such as Laravel,
 Symfony, etc. to list entries from an SQL database table.
