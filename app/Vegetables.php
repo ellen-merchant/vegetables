@@ -2,7 +2,6 @@
 
 namespace Ellllllen;
 
-use Ellllllen\Database\Connect;
 use Ellllllen\Database\Contracts\DatabaseQueryInterface;
 
 class Vegetables

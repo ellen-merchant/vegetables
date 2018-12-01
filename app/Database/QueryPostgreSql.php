@@ -24,4 +24,16 @@ class QueryPostgreSql extends AbstractDatabaseQuery implements DatabaseQueryInte
 
         return $connection;
     }
+
+    /**
+     * @param string $sql
+     * @return array
+     * @throws \Exception
+     */
+    public function fetchAll(string $sql):array
+    {
+        $result = pg_query($this->connect(), $sql);
+
+        return pg_fetch_all($result);
+    }
 }

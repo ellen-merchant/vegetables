@@ -15,18 +15,6 @@ abstract class AbstractDatabaseQuery
     protected abstract function connect();
 
     /**
-     * @param string $sql
-     * @return array
-     * @throws \Exception
-     */
-    public function fetchAll(string $sql)
-    {
-        $result = pg_query($this->connect(), $sql);
-
-        return pg_fetch_all($result);
-    }
-
-    /**
      * @return string
      */
     protected function getDatabaseHost(): string

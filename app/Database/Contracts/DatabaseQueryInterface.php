@@ -4,5 +4,9 @@ namespace Ellllllen\Database\Contracts;
 
 interface DatabaseQueryInterface
 {
-    public function fetchAll(string $sql);
+    /**
+     * @param string $sql
+     * @return array
+     */
+    public function fetchAll(string $sql): array;
 }
