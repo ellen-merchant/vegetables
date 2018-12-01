@@ -5,7 +5,7 @@ CREATE TABLE vegetables (
 "name" VARCHAR(256) NOT NULL,
 "classification" VARCHAR(256) NOT NULL,
 "description" TEXT,
-"edible" BOOLEAN NOT NULL DEFAULT t,
+"edible" BOOLEAN NOT NULL DEFAULT TRUE,
 PRIMARY KEY ("id")
 ) WITH (OIDS=FALSE);
 
@@ -13,12 +13,11 @@ CREATE UNIQUE INDEX "vegetable_id_key" ON "vegetables" USING BTREE ("id" "pg_cat
 
 CREATE SEQUENCE vegetable_id_seq START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
 
--- Optional - Depending on which username you use to connect to the database
--- ALTER TABLE vegetable_id_seq OWNER TO postgres;
+ALTER TABLE vegetable_id_seq OWNER TO postgres;
 
 ALTER SEQUENCE vegetable_id_seq OWNED BY vegetables.id;
 
-ALTER TABLE ONLY vegetables.vegetables ALTER COLUMN id SET DEFAULT nextval('vegetable_id_seq'::REGCLASS);
+ALTER TABLE ONLY vegetables ALTER COLUMN id SET DEFAULT nextval('vegetable_id_seq'::REGCLASS);
 
 -- Optional - Sample data
 INSERT INTO vegetables(name, classification, description, edible) VALUES('Broccoli', 'Flower', 'Broccoli is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable.', 't');
