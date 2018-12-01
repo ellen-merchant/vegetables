@@ -13,6 +13,7 @@ CREATE UNIQUE INDEX "vegetable_id_key" ON "vegetables" USING BTREE ("id" "pg_cat
 
 CREATE SEQUENCE vegetable_id_seq START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
 
+ALTER TABLE vegetables OWNER TO postgres;
 ALTER TABLE vegetable_id_seq OWNER TO postgres;
 
 ALTER SEQUENCE vegetable_id_seq OWNED BY vegetables.id;

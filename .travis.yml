@@ -14,6 +14,7 @@ before_script:
 - psql -c 'CREATE UNIQUE INDEX "vegetable_id_key" ON "vegetables" USING BTREE ("id" "pg_catalog"."int8_ops");' -U postgres
 - psql -c 'CREATE SEQUENCE vegetable_id_seq START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;' -U postgres
 - psql -c 'ALTER TABLE vegetable_id_seq OWNER TO postgres;' -U postgres
+- psql -c 'ALTER TABLE vegetables OWNER TO postgres;' -U postgres
 - psql -c 'ALTER SEQUENCE vegetable_id_seq OWNED BY vegetables.id;' -U postgres
 - psql -c 'ALTER TABLE ONLY vegetables ALTER COLUMN id SET DEFAULT nextval('vegetable_id_seq'::REGCLASS);' -U postgres
 - psql -c 'INSERT INTO vegetables(name, classification, description, edible) VALUES('Broccoli', 'Flower', 'Broccoli is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable.', 't');
