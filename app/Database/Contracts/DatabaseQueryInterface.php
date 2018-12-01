@@ -6,7 +6,7 @@ interface DatabaseQueryInterface
 {
     /**
      * @param string $sql
-     * @return array
+     * @return array|null
      */
-    public function fetchAll(string $sql): array;
+    public function fetchAll(string $sql);
 }
