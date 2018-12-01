@@ -35,7 +35,7 @@ abstract class AbstractDatabaseQuery
      */
     protected function getDatabaseName(): string
     {
-        return QueryEnvironmentVariables::getVariable('DB_NAME');
+        return QueryEnvironmentVariables::getVariable('DB_DATABASE');
     }
 
     /**
