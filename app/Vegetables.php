@@ -27,7 +27,7 @@ class Vegetables
      */
     public function get()
     {
-        $sql = "select * from vegetables";
+        $sql = "select * from public.vegetables";
 
         return $this->databaseConnection->fetchAll($sql);
     }
