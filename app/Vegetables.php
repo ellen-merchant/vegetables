@@ -23,9 +23,9 @@ class Vegetables
     /**
      * Get all vegetables.
      *
-     * @return array
+     * @return array|null
      */
-    public function get(): array
+    public function get()
     {
         $sql = "select * from vegetables";
 
