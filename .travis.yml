@@ -10,11 +10,6 @@ install:
 - composer install --no-interaction
 before_script:
 - psql -c 'CREATE DATABASE vegetables;' -U postgres
-- psql -c 'CREATE UNIQUE INDEX "vegetable_id_key" ON "vegetables" USING BTREE ("id" "pg_catalog"."int8_ops");' -U postgres
-- psql -c 'CREATE SEQUENCE vegetable_id_seq START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;' -U postgres
-- psql -c 'ALTER TABLE vegetable_id_seq OWNER TO postgres;' -U postgres
-- psql -c 'ALTER SEQUENCE vegetable_id_seq OWNED BY vegetables.id;' -U postgres
-- psql -c 'ALTER TABLE ONLY vegetables.vegetables ALTER COLUMN id SET DEFAULT nextval('vegetable_id_seq'::REGCLASS);' -U postgres
 - psql -c 'INSERT INTO vegetables(name, classification, description, edible) VALUES('Broccoli', 'Flower', 'Broccoli is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable.', 't');
   INSERT INTO vegetables(name, classification, description, edible) VALUES('Asparagus', 'Stem', 'Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis, is a spring vegetable, a flowering perennial plant species in the genus Asparagus.', 't');
   INSERT INTO vegetables(name, classification, description, edible) VALUES('Spinach', 'Leaf', 'Spinach is an edible flowering plant in the family Amaranthaceae native to central and western Asia.', 't');
