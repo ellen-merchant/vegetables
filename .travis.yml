@@ -10,7 +10,7 @@ install:
 - composer install --no-interaction
 before_script:
 - psql -c 'CREATE DATABASE vegetables;' -U postgres
-- psql -c 'CREATE TABLE vegetables("id" BIGSERIAL PRIMARY KEY, "name" VARCHAR(256) NOT NULL, "classification" VARCHAR(256) NOT NULL, "description" TEXT, "edible" BOOLEAN NOT NULL DEFAULT TRUE, PRIMARY KEY ("id")) WITH (OIDS=FALSE);' -U postgres
+- psql -c 'CREATE TABLE vegetables("id" BIGSERIAL, "name" VARCHAR(256) NOT NULL, "classification" VARCHAR(256) NOT NULL, "description" TEXT, "edible" BOOLEAN NOT NULL DEFAULT TRUE, PRIMARY KEY ("id")) WITH (OIDS=FALSE);' -U postgres
 - psql -c 'INSERT INTO vegetables(name, classification, description, edible) VALUES("Broccoli", "Flower", "Broccoli is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable.", "t");
   INSERT INTO vegetables(name, classification, description, edible) VALUES("Asparagus", "Stem", "Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis, is a spring vegetable, a flowering perennial plant species in the genus Asparagus.", "t");
   INSERT INTO vegetables(name, classification, description, edible) VALUES("Spinach", "Leaf", "Spinach is an edible flowering plant in the family Amaranthaceae native to central and western Asia.", "t");
