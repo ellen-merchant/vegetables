@@ -29,3 +29,5 @@ script:
 - php vendor/bin/codecept run
 services:
 - postgresql
+after_success:
+- bash <(curl -s https://codecov.io/bash)
