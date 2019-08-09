@@ -2,9 +2,14 @@ language: php
 sudo: required
 dist: trusty
 php:
+- 7.0
+- 7.1
 - 7.2
+- 7.3
 addons:
   chrome: stable
+services:
+- postgresql
 before_install:
 - composer self-update
 - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
@@ -26,8 +31,6 @@ before_script:
   INSERT INTO vegetables(name, classification, description, edible) VALUES('Turnip', 'Root', 'The turnip or white turnip is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.', 't');
   INSERT INTO vegetables(name, classification, description, edible) VALUES('Tomato', 'Fruit', 'The tomato is the edible, often red, berry of the nightshade Solanum lycopersicum, commonly known as a tomato plant.', 't');" -U postgres
 script:
-- php vendor/bin/codecept run
-services:
-- postgresql
+- vendor/bin/codecept run --coverage --coverage-xml --coverage-html
 after_success:
 - bash <(curl -s https://codecov.io/bash)
