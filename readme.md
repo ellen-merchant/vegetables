@@ -82,17 +82,18 @@ Automated tests should be included where suitable, 100% code coverage is not exp
 Please use PHP7.0 or above. 
 
 # Development
-## Prequisties
+## Prerequisites
 * Docker
 
 ## Set Up Instructions
 In your terminal run commands:
-`docker-compose up --build -d`
 
-```docker run --rm --interactive --tty --volume `pwd -W`:/app composer install```
+```docker-compose up --build -d```
+
+```docker exec --tty vegetables_php_1 composer update```
 
 ## Run Tests
-`docker exec --tty vegetables_php_1 vendor/bin/phpunit tests`
+```docker exec --tty vegetables_php_1 vendor/bin/phpunit tests```
 
 
 
