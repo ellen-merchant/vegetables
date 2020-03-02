@@ -16,13 +16,6 @@ services:
         restart: always
         volumes:
             - .:/var/www/html
-    composer:
-        image: composer
-        volumes:
-            - .:/app
-        command: install
-        depends_on:
-            - php
     db:
         image: postgres:10.1
         restart: always

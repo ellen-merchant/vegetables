@@ -80,3 +80,21 @@ Code should be documented where needed
 Automated tests should be included where suitable, 100% code coverage is not expected.
 
 Please use PHP7.0 or above. 
+
+# Development
+## Prequisties
+* Docker
+
+## Set Up Instructions
+In your terminal run commands:
+`docker-compose up --build -d`
+
+```docker run --rm --interactive --tty --volume `pwd -W`:/app composer install```
+
+## Run Tests
+`docker exec --tty vegetables_php_1 vendor/bin/phpunit tests`
+
+
+
+
+
